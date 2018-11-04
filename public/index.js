@@ -1,8 +1,12 @@
 
 var currentStateVal = 0;
+var dateVal = 0;
 $( document ).ready(function() {
     console.log( "ready!" );
     $('.calendar').datepicker();
+    $('button').click(function(event) {
+        dateVal = $('#calendar').val(); 
+    })
     $('.dropdown-menu a').on('click', function(){  
         console.log($(this).data("value"));
         currentStateVal = $(this).data("value");
