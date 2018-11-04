@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Vandyhacks</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--  <link rel="icon" type="image/x-icon" href="favicon.ico">-->
+<!--  <link rel="stylesheet" src="node_modules/bootstrap/dist/css/bootstrap.css">-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    
+  <link rel="stylesheet" type="text/css" src="index.css">
+  <link rel="stylesheet" type="text/scss" href="@material/list/mdc-list"> 
+  <script type="text/javascript" src="index.js"></script>
+  <style>
+      #map {
+        height: 100%;
+      }
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+  </style>
+</head>
+<body>
+    <br>
+    <div class="row" style="height: 650px;">
+        <div class="col-1">
+        </div>
+        <div class="col-3">
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Pick a State
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" id="state" data-value=6>CT</a>
+                <a class="dropdown-item" id="state" data-value=7>DE</a>
+                <a class="dropdown-item" id="state" data-value=18>MA</a>
+                  <a class="dropdown-item" id="state" data-value=19>MD</a>
+                  <a class="dropdown-item" id="state" data-value=21>MN</a>
+                  <a class="dropdown-item" id="state" data-value=28>NH</a>
+                  <a class="dropdown-item" id="state" data-value=29>NJ</a>
+                  <a class="dropdown-item" id="state" data-value=37>PA</a>
+                  <a class="dropdown-item" id="state" data-value=38>RI</a>
+                  <a class="dropdown-item" id="state" data-value=44>VT</a>
+              </div>
+            </div>
+            <br>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Pick Date Prediction</span>
+              </div>
+              <input type="text" class="form-control calendar" id="calendar">
+              <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="button" id="date"><i class="fa fa-arrow-right"></i></button>
+              </div>
+            </div>
+        </div>
+        <div class="col-7">
+            <div id="map"></div>
+                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTAMykaE0wy609KKN5ziAzgBecZnXHhcQ&callback=initMap"
+                async defer></script>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "name": "vandyhacksnaveteam",
+  "version": "1.0.0",
+  "description": "#### Team Members:  > Sriharsha Singam",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sriharsha-Singam/VandyHacksNaveTeam.git"
+  },
+  "author": "Sriharsha Singam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sriharsha-Singam/VandyHacksNaveTeam/issues"
+  },
+  "homepage": "https://github.com/Sriharsha-Singam/VandyHacksNaveTeam#readme",
+  "dependencies": {
+    "@material/menu": "^0.41.0",
+    "bootstrap": "^4.1.3",
+    "jquery": "^3.3.1",
+    "popper": "^1.0.1"
+  }
+}
