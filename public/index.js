@@ -4,8 +4,10 @@ var dateVal = 0;
 var apiString = 0;
 var month = 0;
 var day = 0;
-var longitudeStorLocations = [];
-var latitudeStorLocations = [];
+var statesInUS = ["AL","AK","AZ","AR"] //ALL STATES IN USA
+//var longitudeStorLocations = [];
+//var latitudeStorLocations = [];
+var jsonStoreLocations = null;
 var marker = []
 $( document ).ready(function() {
     console.log( "ready!" );
@@ -22,10 +24,11 @@ $( document ).ready(function() {
     })
     $.getJSON("StoreLocatore.json", function(json) {
             console.log(json.length);
-            for(var i = 0; i < json.length; i++){
-                longitudeStorLocations.push(json[i].longitude);
-                latitudeStorLocations.push(json[i].latitude);
-            }
+            jsonStoreLocations = json
+//            for(var i = 0; i < json.length; i++){
+//                longitudeStorLocations.push(json[i].longitude);
+//                latitudeStorLocations.push(json[i].latitude);
+//            }
             addMarkers();
     });
     
@@ -42,11 +45,13 @@ function initMap() {
 //    var marker = new google.maps.Marker({position: place, map: map});
 }
 function addMarkers(){
-    for(var i = 0; i < longitudeStorLocations.length; i++){
-        var place = {lat: latitudeStorLocations[i], lng: longitudeStorLocations[i]};
+    for(var i = 0; i < jsonStoreLocations.length; i++){
+        var place = {lat: json[i].latitude, lng: json[i].longitude};
         var marker = new google.maps.Marker({position: place, map: map});
+        var 
+        
     }
     var markerCluster = new MarkerClusterer(map, markers,
             {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
-      }
+    
 }
