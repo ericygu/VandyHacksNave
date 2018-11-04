@@ -1,6 +1,9 @@
 
 var currentStateVal = 0;
 var dateVal = 0;
+var longitudeStorLocations = [];
+var latitudeStorLocations = [];
+var marker = []
 $( document ).ready(function() {
     console.log( "ready!" );
     $('.calendar').datepicker();
@@ -8,20 +11,24 @@ $( document ).ready(function() {
         dateVal = $('#calendar').val(); 
     })
     $('.dropdown-menu a').on('click', function(){  
-        console.log($(this).data("value"));
         currentStateVal = $(this).data("value");
         $('.dropdown-toggle').html($(this).html());    
     })
-    $.getJSON("https://vandyhacks-1541273118069.firebaseapp.com/StoreLocator.json", function(json) {
-        console.log(json); // this will show the info it in firebug console
-    });
-//    console.log(csvJSON());
-
 });
 var map;
 function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 8
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 39.83333333, lng: -98.58333333},
+        zoom: 7
+        $.getJSON("StoreLocatore.json", function(json) {
+            console.log(json.length);
+            for(var i = 0; i < json.length; i++){
+                longitudeStorLocations.push(json[i].longitude);
+                latitudeStorLocations.push(json[i].latitude);
+                console.log(json[i].longitude)+" "+ json[i].latitude);
+                var place = {lat: json[i].latitude, lng: json[i].longitude};
+                marker[i] = new google.maps.Marker({position: place, map: map});
+            }
         });
+    });
 }
