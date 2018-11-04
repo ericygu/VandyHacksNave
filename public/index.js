@@ -20,21 +20,33 @@ $( document ).ready(function() {
         currentStateVal = $(this).data("value");
         $('.dropdown-toggle').html($(this).html());    
     })
+    $.getJSON("StoreLocatore.json", function(json) {
+            console.log(json.length);
+            for(var i = 0; i < json.length; i++){
+                longitudeStorLocations.push(json[i].longitude);
+                latitudeStorLocations.push(json[i].latitude);
+            }
+            addMarkers();
+    });
+    
+    //START CANVASJS CODE
+    
 });
 var map;
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 39.83333333, lng: -98.58333333},
-        zoom: 7
-        $.getJSON("StoreLocatore.json", function(json) {
-            console.log(json.length);
-            for(var i = 0; i < json.length; i++){
-                longitudeStorLocations.push(json[i].longitude);
-                latitudeStorLocations.push(json[i].latitude);
-                console.log(json[i].longitude)+" "+ json[i].latitude);
-                var place = {lat: json[i].latitude, lng: json[i].longitude};
-                marker[i] = new google.maps.Marker({position: place, map: map});
-            }
-        });
+        zoom: 5
     });
+//    var place = {lat: 39.83333333, lng: -98.58333333};
+//    var marker = new google.maps.Marker({position: place, map: map});
+}
+function addMarkers(){
+    for(var i = 0; i < longitudeStorLocations.length; i++){
+        var place = {lat: latitudeStorLocations[i], lng: longitudeStorLocations[i]};
+        var marker = new google.maps.Marker({position: place, map: map});
+    }
+    var markerCluster = new MarkerClusterer(map, markers,
+            {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+      }
 }
