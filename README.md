@@ -8,3 +8,6 @@
 > Kyle Jiang
 
 > Eric Gu
+
+# Files
+Check FinalProduct.zip, has a file too big for github to carry which carries TSC sales data
